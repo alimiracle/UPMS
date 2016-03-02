@@ -1,0 +1,40 @@
+#!/bin/sh
+update() {
+if test $# = 0
+then
+apt-get update && apt-get upgrade
+else
+apt-get install $1
+fi
+}
+
+if test "$1" = "install"
+
+then
+
+apt-get install $2
+
+elif test "$1" = "autoremove"
+
+then
+
+apt-get autoremove
+elif test "$1" = "upgrade"
+then
+update $2
+
+elif test "$1" = "info"
+
+then
+
+apt-cache show $2
+
+elif test "$1" = "remove"
+
+then
+
+apt-get purge $2
+
+else
+echo E: Invalid operation $1
+fi
