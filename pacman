@@ -27,7 +27,7 @@ elif test "$1" = "-Rsc"
 then
 apt-get purge $2
 else
-echo E: Invalid operation $1
+echo pacman
 fi
 
 
