@@ -1,0 +1,31 @@
+#!/bin/sh
+update() {
+if test $# = 0
+then
+pacman -Syu
+else
+pacman -S $2
+fi
+}
+
+if test "$1" = "install"
+then
+pacman -S $2
+elif test "$1" = "update"
+then
+update $2
+elif test "$1" = "search"
+then
+pacman -SS $2 $3
+elif test "$1" = "info"
+then
+pacman -Ss $2 $3
+elif test "$1" = "dup"
+then
+pacman -Syu
+elif test "$1" = "remove"
+then
+pacman -Rs $2
+else
+echo E: Invalid operation $1
+fi

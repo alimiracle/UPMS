@@ -1,0 +1,19 @@
+#!/bin/sh
+if test "$1" = "--ask"
+then
+pacman -S $2
+elif test "$1" = "--sync"
+then
+apt-get update
+elif test "$1" = "--search"
+then
+pacman -Ss $2 $3
+elif test "$1" = "--update"
+then
+apt-get update && apt-get upgrade
+elif test "$1" = "--unmerge"
+then
+apt-get remove $2
+else
+echo E: Invalid operation $1
+fi
