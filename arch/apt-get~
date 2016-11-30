@@ -1,0 +1,23 @@
+#!/bin/sh
+if test "$1" = "install"
+then
+pacman -S $2
+elif test "$1" = "-Sy"
+then
+pacman -Sy
+elif test "$1" = "clean"
+then
+pacman -Sc
+elif test "$1" = "-upgrade"
+then
+pacman -Syyu
+elif test "$1" = "remove"
+then
+pacman -R $2
+elif test "$1" = "-purge"
+then
+pacman -Rs $2
+
+else
+echo apt-get
+fi

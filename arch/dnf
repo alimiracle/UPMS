@@ -1,0 +1,53 @@
+#!/bin/sh
+updatey() {
+if test $# = 0
+then
+pacman -Syu
+else
+pacman -S $2
+fi
+}
+
+yes() {
+if test "$1" = "install"
+then
+pacman -S $2
+elif test "$1" = "upgrade"
+then
+updatey $2
+elif test "$1" = "remove"
+then
+pacman -Rs $2
+else
+echo E: Invalid operation $1
+fi
+}
+
+update() {
+if test $# = 0
+then
+pacman -Syu
+else
+pacman -S $2
+fi
+}
+
+elif test "$1" = "upgrade"
+then
+update $2
+
+elif test "$1" = "info"
+
+then
+pacman -SS $2
+elif test "$1" = "-y"
+then
+updatey $2 $3
+elif test "$1" = "remove"
+
+then
+
+pacman -Rs $2
+else
+echo E: Invalid operation $1
+fi

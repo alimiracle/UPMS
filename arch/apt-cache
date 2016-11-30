@@ -1,0 +1,7 @@
+#!/bin/sh
+if test "$1" = "show"
+then
+pacman --Qi $2
+else
+echo E: Invalid operation $1
+fi
