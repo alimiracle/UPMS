@@ -1,8 +1,0 @@
-#!/bin/sh
-if test "$1" = "show"
-then
-pacman --Qi $2
-else
-echo apt-cache
-fi
-
