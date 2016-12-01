@@ -12,10 +12,10 @@ pacman -S $2
 
 elif test "$1" = "info"
 then
-pacman --Qi $2
+pacman -Si $2
 elif test "$1" = "search"
 then
-pacman --Qi $2
+pacman -Ss $2
 elif test "$1" = "remove"
 then
 pacman -Rs $2
