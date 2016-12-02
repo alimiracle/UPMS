@@ -50,6 +50,9 @@ elif test "$1" = "remove"
 then
 
 pacman -Rs $2
+elif test "$1" = "autoremove"
+then
+pacman -R $(pacman -Qdtq)
 else
 echo E: Invalid operation $1
 fi

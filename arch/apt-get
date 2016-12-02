@@ -2,7 +2,10 @@
 if test "$1" = "install"
 then
 pacman -S $2
-elif test "$1" = "-Sy"
+elif test "$1" = "autoremove"
+then
+pacman -R $(pacman -Qdtq)
+elif test "$1" = "update"
 then
 pacman -Sy
 elif test "$1" = "clean"
