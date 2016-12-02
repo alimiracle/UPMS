@@ -7,7 +7,7 @@ then
 apt-get update
 elif test "$1" = "--search"
 then
-apt-get search $1
+apt-cache search $1
 elif test "$1" = "--update"
 then
 apt-get update && apt-get upgrade
