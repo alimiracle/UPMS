@@ -40,7 +40,12 @@ elif test "$1" = "remove"
 then
 
 apt-get purge $2
-
+elif test "$1" = "rm"
+then
+apt-get purge $2
+elif test "$1" = "in"
+then
+apt-get install $2
 else
 echo E: Invalid operation $1
 fi
