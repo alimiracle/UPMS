@@ -1,0 +1,30 @@
+#!/bin/sh
+install() {
+if test "$1" = "--reinstall"
+then
+pacman -Rs $2
+pacman -S $2
+else
+pacman -S $1
+}
+
+if test "$1" = "install"
+then
+install $2 $3
+elif test "$1" = "update"
+then
+pacman -Sy
+elif test "$1" = "info"
+then
+apt-cache show $2
+elif test "$1" = "upgrade"
+then
+apt-get upgrade
+
+elif test "$1" = "remove"
+then
+pacman -Rs $2
+else
+echo E: Invalid operation $1
+fi
+
