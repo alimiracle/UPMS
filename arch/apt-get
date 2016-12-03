@@ -11,7 +11,7 @@ pacman -Sy
 elif test "$1" = "clean"
 then
 pacman -Sc
-elif test "$1" = "-upgrade"
+elif test "$1" = "upgrade"
 then
 pacman -Syyu
 elif test "$1" = "remove"

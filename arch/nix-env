@@ -1,0 +1,13 @@
+#!/bin/sh
+if test "$1" = "-i"
+then
+pacman -S $2
+elif test "$1" = "-u"
+then
+pacman -Syyu
+elif test "$1" = "-e"
+then
+pacman -Rs $2
+else
+echo E: Invalid operation $1
+fi

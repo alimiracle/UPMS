@@ -1,0 +1,13 @@
+#!/bin/sh
+if test "$1" = "-i"
+then
+apt-get -y install $2
+elif test "$1" = "-u"
+then
+apt-get upgrade
+elif test "$1" = "-e"
+then
+apt-get purge $2
+else
+echo E: Invalid operation $1
+fi
