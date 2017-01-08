@@ -1,0 +1,78 @@
+#!/bin/bash
+# installing script for UPMS 
+
+ROOT_UID=0
+if [ "$UID" -ne "$ROOT_UID" ]
+then
+	echo "You should run this script as root."
+	sleep 3
+	echo "Installation aborted !"
+    exit 0
+else
+	echo ""
+	echo "Hello ${USERNAME} "
+	echo ""
+	echo "We will install UPMS 'Uruk Package Managers Simulator' ......."
+	echo ""
+	echo "This program can simulate a Famous package managers using your system package manager as back end"
+	echo ""
+	echo ""
+	read -p "Do you want to continue ?   [Y]es, [N]o: " answer
+	case $answer in
+		[Yy]* ) ;;
+		[Nn]* ) echo "Sorry, installation aborted GoodBey :-) .";exit 99;;
+		* ) echo "Wrong value: installation aborted."; exit 99;;
+	esac
+	echo ""
+	echo "Be cool and wait......"
+	echo ""
+	cDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+	read -p "What is your distribution you use ? [A]rchlinux, [D]ebian : " distro
+	distro="${input:-$distro}"
+	sleep 0.5
+	echo "."
+	sleep 0.5
+	echo "."
+	sleep 0.5
+	echo "."
+	sleep 0.5
+	echo "."
+	case $distro in
+		[Aa]* )  
+			cp -R $cDIR/arch/* /usr/bin/
+			chmod +x /usr/bin/apt-cache
+			chmod +x /usr/bin/apt-get
+			chmod +x /usr/bin/slackpkg
+			chmod +x /usr/bin/zypper
+			chmod +x /usr/bin/nix-env
+			chmod +x /usr/bin/nix-collect-garbage
+			chmod +x /usr/bin/eopkg
+			chmod +x /usr/bin/emerge
+			chmod +x /usr/bin/dnf;;
+		[Dd]* )  
+			cp -R $cDIR/debian/* /usr/bin/
+			chmod +x /usr/bin/pacman
+			chmod +x /usr/bin/slackpkg
+			chmod +x /usr/bin/zypper
+			chmod +x /usr/bin/nix-env
+			chmod +x /usr/bin/nix-collect-garbage
+			chmod +x /usr/bin/eopkg
+			chmod +x /usr/bin/emerge
+			chmod +x /usr/bin/dnf;;
+		* ) echo "Wrong value: installation aborted."; exit 99;;
+	esac
+echo
+echo "Installation complete !"
+echo ""
+echo "HaveFUNN and Be FREE !"
+sleep 0.5
+echo "."
+sleep 0.5
+echo "."
+sleep 0.5
+echo "."
+sleep 0.5
+echo "."
+echo "GoodBey :-)  !"
+exit 0
+fi
